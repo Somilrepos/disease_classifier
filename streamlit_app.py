@@ -25,9 +25,10 @@ model.compile(Adamax(lr=.001), loss='categorical_crossentropy', metrics=['accura
 model = load_model("EfficientNetB3-skin disease-86.70.h5")
 
 # Image uploader
-image = st.file_uploader("Upload a file")
-if image:
-    image = cv2.imread(image)
+file = st.file_uploader("Upload a file")
+if file:
+    file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
+    image = cv2.imdecode(file_bytes, 1)
     image = cv2.resize(image, (300,300))
     image = np.expand_dims(image, axis=0)
     pred = model.predict(image)
