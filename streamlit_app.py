@@ -35,6 +35,8 @@ if file:
     category_idx = np.argmax(pred)
     df = pd.read_csv("./class_dict.csv")
     category = df.loc[category_idx,"class"]
-    
-    st.write(f"Your prediction is {category} with a accuracy of {(pred[0][category_idx]*100):.2f}")
+  
+if category:    
+st.write(f"Your prediction is {category} with a accuracy of {(pred[0][category_idx]*100):.2f}")
+print(f"Your prediction is {category} with a accuracy of {(pred[0][category_idx]*100):.2f}")
     
