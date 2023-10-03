@@ -4,7 +4,7 @@ from tensorflow.keras.layers import Dense, Activation,Dropout, MaxPooling2D,Batc
 from tensorflow.keras.optimizers import Adamax
 from tensorflow.keras.metrics import categorical_crossentropy
 from tensorflow.keras import regularizers
-from tensorflow.keras.models import Model
+from tensorflow.keras.models import Model, load_model
 import streamlit as st
 import cv2
 import numpy as np
@@ -21,6 +21,8 @@ x=Dropout(rate=.45, seed=123)(x)
 output=Dense(10, activation='softmax')(x)
 model=Model(inputs=base_model.input, outputs=output)
 model.compile(Adamax(lr=.001), loss='categorical_crossentropy', metrics=['accuracy'])
+
+model = load_model("EfficientNetB3-skin disease-86.70.h5")
 
 # Image uploader
 image = st.file_uploader("Upload a file")
