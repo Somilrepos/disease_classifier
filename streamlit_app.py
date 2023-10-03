@@ -34,7 +34,7 @@ if file:
     pred = model.predict(image)
     category_idx = np.argmax(pred)
     df = pd.read_csv("./class_dict.csv")
-    category = df.iloc[category_idx,"class"]
+    category = df.loc[category_idx,"class"]
     
     st.text(f"Your prediction is {category} with a accuracy of {np[category_idx]}")
     
