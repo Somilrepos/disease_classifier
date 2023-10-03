@@ -36,5 +36,5 @@ if file:
     df = pd.read_csv("./class_dict.csv")
     category = df.loc[category_idx,"class"]
     
-    st.text(f"Your prediction is {category} with a accuracy of {(pred[0][category_idx]*100):.2f}")
+    st.write(f"Your prediction is {category} with a accuracy of {(pred[0][category_idx]*100):.2f}")
     
