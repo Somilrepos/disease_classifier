@@ -1,4 +1,4 @@
-cv2==4.8.0
+opencv-python==4.8.0
 keras==2.13.1
 matplotlib==3.7.1
 numpy==1.23.5
