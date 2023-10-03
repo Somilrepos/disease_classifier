@@ -10,6 +10,8 @@ import cv2
 import numpy as np
 import pandas as pd
 
+category = None
+
 # Defining the model
 model_name='EfficientNetB3'
 base_model=tf.keras.applications.EfficientNetB2(include_top=False, weights="imagenet",input_shape=(300,300,3), pooling='max')
