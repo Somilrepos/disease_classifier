@@ -27,7 +27,7 @@ model = load_model("EfficientNetB3-skin disease-86.70.h5")
 # Image uploader
 file = st.file_uploader("Upload a file")
 if file:
-    file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
+    file_bytes = np.asarray(bytearray(file.read()), dtype=np.uint8)
     image = cv2.imdecode(file_bytes, 1)
     image = cv2.resize(image, (300,300))
     image = np.expand_dims(image, axis=0)
