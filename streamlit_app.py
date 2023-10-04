@@ -26,7 +26,7 @@ model.compile(Adamax(lr=.001), loss='categorical_crossentropy', metrics=['accura
 
 @st.cache
 def load_model():
-	  return load_model("EfficientNetB3-skin disease-86.70.h5")
+	  return load_model("EfficientNetB3-skin disease-86.49.h5")
 
 model = load_model()
 
