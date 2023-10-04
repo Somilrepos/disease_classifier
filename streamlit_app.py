@@ -24,7 +24,11 @@ output=Dense(10, activation='softmax')(x)
 model=Model(inputs=base_model.input, outputs=output)
 model.compile(Adamax(lr=.001), loss='categorical_crossentropy', metrics=['accuracy'])
 
-model = load_model("EfficientNetB3-skin disease-86.70.h5")
+@st.cache
+def load_model():
+	  return load_model("EfficientNetB3-skin disease-86.70.h5")
+
+model = load_model()
 
 # Image uploader
 file = st.file_uploader("Upload a file")
