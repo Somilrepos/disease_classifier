@@ -25,10 +25,10 @@ model=Model(inputs=base_model.input, outputs=output)
 model.compile(Adamax(lr=.001), loss='categorical_crossentropy', metrics=['accuracy'])
 
 @st.cache
-def load_model(model_name):
+def load(model_name):
 	  return load_model(model_name)
 
-model = load_model("EfficientNetB3-skin disease-86.49.h5")
+model = load("EfficientNetB3-skin disease-86.49.h5")
 
 # Image uploader
 file = st.file_uploader("Upload a file")
