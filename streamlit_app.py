@@ -24,7 +24,7 @@ output=Dense(10, activation='softmax')(x)
 model=Model(inputs=base_model.input, outputs=output)
 model.compile(Adamax(lr=.001), loss='categorical_crossentropy', metrics=['accuracy'])
 
-@st.cache
+@st.cache_data
 def load(model_name):
 	  return load_model(model_name)
 
@@ -44,5 +44,7 @@ if file:
 
 if category:    
   st.write(f"Your prediction is {category} with a accuracy of {(pred[0][category_idx]*100):.2f}")
-  print(f"Your prediction is {category} with a accuracy of {(pred[0][category_idx]*100):.2f}")
+
+  pred_df = pd.DataFrame({'Disease Class': df.loc[:,'class'], 'Prediction Probabilities (in %)': np.multiply(pred[0],100)}, columns = ['Disease Class','Prediction Probabilities (in %)'])
+  st.write(pred_df)
     
